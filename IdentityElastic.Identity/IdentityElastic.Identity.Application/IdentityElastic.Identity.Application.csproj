@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="Feree.ResultType" Version="1.3.6" />
+    <PackageReference Include="FluentValidation" Version="10.4.0" />
+    <PackageReference Include="IdentityModel" Version="6.0.0" />
+    <PackageReference Include="MediatR" Version="10.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Abstractions" Version="6.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="6.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\IdentityElastic.Identity.Client\IdentityElastic.Identity.Client.csproj" />
+    <ProjectReference Include="..\IdentityElastic.Identity.Domain\IdentityElastic.Identity.Domain.csproj" />
+    <ProjectReference Include="..\IdentityElastic.Identity.Infrastructure\IdentityElastic.Identity.Infrastructure.csproj" />
+    <ProjectReference Include="..\IdentityElastic.Security\IdentityElastic.Security.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Managers\" />
+  </ItemGroup>
+
+</Project>

@@ -1,17 +1,23 @@
+using IdentityElastic.Identity.WebApi;
+
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+var configuration = new ConfigurationBuilder()
+    .SetupConfiguration(builder.Configuration, builder.Environment)
+    .Build();
 
-builder.Services.AddControllers();
+bool isIntegrationTests = builder.Environment.IsEnvironment("IntegrationTests");
+
+builder
+    .Services
+    .SetupServices(configuration, isIntegrationTests);
+
+builder
+    .Host
+    .SetupHost();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
-
-app.UseHttpsRedirection();
-
-app.UseAuthorization();
-
-app.MapControllers();
-
-app.Run();
+await app
+    .SetupApplication()
+    .RunAsync();
